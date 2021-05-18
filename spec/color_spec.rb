@@ -21,5 +21,17 @@ RSpec.describe Color do
 
      expect(color.name).to eq("Green")
     end
+
+    it 'can create multiple instances of Color' do
+      red = Color.new("Red")
+      green = Color.new("Green")
+      blue = Color.new("Blue")
+      yellow = Color.new("Yellow")
+
+      expect(red.name).to eq("Red")
+      expect(green.name).to eq("Green")
+      expect(blue.name).to eq("Blue")
+      expect(yellow.name).to eq("Yellow")
+    end
   end
 end
