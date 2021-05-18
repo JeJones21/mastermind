@@ -7,5 +7,11 @@ RSpec.describe Color do
 
       expect(color).to be_an_instance_of(Color)
     end
-  end
+
+    it 'can have a name' do
+     color = Color.new("Red")
+     
+     expect(color.name).to eq("Red")
+   end
+ end
 end
