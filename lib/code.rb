@@ -1,6 +1,7 @@
 class Code
+  attr_reader :colors
 
-  def initialize(color)
-  end 
-
+  def initialize(colors)
+    @colors = colors
+  end
 end
