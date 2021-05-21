@@ -8,5 +8,11 @@ RSpec.describe Code do
 
       expect(code).to be_an_instance_of(Code)
     end
+
+    it 'has an array of colors' do
+      code = Code.new(['R', 'G', 'Y', 'B'])
+
+      expect(code.colors).to eq(['R', 'G', 'Y', 'B'])
+    end
   end
 end
