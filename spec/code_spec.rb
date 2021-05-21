@@ -14,5 +14,11 @@ RSpec.describe Code do
 
       expect(code.colors).to eq(['R', 'G', 'Y', 'B'])
     end
+
+    it 'starts with an empty sequence' do
+      code = Code.new(['R', 'G', 'Y', 'B'])
+
+      expect(code.sequence).to eq([])
+    end
   end
 end
