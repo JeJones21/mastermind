@@ -6,4 +6,9 @@ class Code
     @colors = colors
     @sequence = []
   end
+
+  def sequencer
+    4.times { @sequence << colors.sample }
+    @sequence.join
+  end
 end
