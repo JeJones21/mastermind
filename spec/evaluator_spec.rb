@@ -20,4 +20,15 @@ RSpec.describe Evaluator do
       expect(evaluator.code).to be_an_instance_of(Code)
     end
   end
+
+  describe 'evaluaton process' do
+    it '#transform_guess' do
+      code = Code.new
+      code.generate
+      evaluator = Evaluator.new(code)
+      evaluator.transform_guess('GGRY')
+
+      expect(evaluator.guess).to match_array(['G', 'G', 'R', 'Y'])
+    end
+  end
 end
