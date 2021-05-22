@@ -40,5 +40,15 @@ RSpec.describe Evaluator do
 
       expect(evaluator.placement).to eq(2)
     end
+
+    it 'evaluates colors' do
+      code = Code.new
+      allow(code).to receive(:generate).and_return(['Y', 'Y', 'G', 'Y'])
+      code.secret_code = code.generate
+      evaluator = Evaluator.new(code)
+      evaluator.transform_guess('GBRY')
+
+      expect(evaluator.correct_color).to eq(2)
+    end 
   end
 end
