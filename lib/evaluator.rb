@@ -19,4 +19,18 @@ class Evaluator
     end
     return placement_counter
   end
+
+  def correct_color
+    correct_colors = 0
+    increment = 0
+    @guess.length.times do
+      if @code.secret_code.include?(@guess[increment])
+        @guess.delete(@guess[increment])
+        correct_colors += 1
+      else
+        increment += 1
+      end
+    end
+    return correct_colors
+  end
 end
