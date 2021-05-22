@@ -1,13 +1,15 @@
 class Code
-  attr_reader :colors,
-              :sequence
+  attr_reader :colors
+  attr_accessor :secret_code
 
-  def initialize(colors)
-    @colors = colors
-    @sequence = []
+  def initialize
+    @colors = ['R', 'G', 'Y', 'B']
+    @secret_code = []
   end
 
-  def sequencer
-    4.times { @sequence << colors.sample }
+  def generate
+    secret_code = []
+    4.times { secret_code << colors.sample }
+    return secret_code
   end
 end
