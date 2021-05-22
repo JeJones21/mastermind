@@ -1,5 +1,5 @@
 require './lib/code'
-reuire './lib/evaluator'
+require './lib/evaluator'
 
 RSpec.describe Evaluator do
   describe '#initialize' do
@@ -8,6 +8,16 @@ RSpec.describe Evaluator do
       evaluator = Evaluator.new(code)
 
       expect(evaluator).to be_an_instance_of(Evaluator)
+    end
+
+    it 'has a secret code to compare to' do
+      code = Code.new
+      code.secret_code = code.generate
+      guess = ['G', 'G', 'R', 'Y']
+      evaluator = Evaluator.new(code)
+
+      expect(evaluator.code.secret_code.length).to eq(4)
+      expect(evaluator.code).to be_an_instance_of(Code)
     end
   end
 end
