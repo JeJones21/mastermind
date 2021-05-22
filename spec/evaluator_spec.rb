@@ -30,5 +30,15 @@ RSpec.describe Evaluator do
 
       expect(evaluator.guess).to match_array(['G', 'G', 'R', 'Y'])
     end
+
+    it 'evaluates placement' do
+      code = Code.new
+      allow(code).to receive(:generate).and_return(['G', 'Y', 'B', 'Y'])
+      code.secret_code = code.generate
+      evaluator = Evaluator.new(code)
+      evaluator.transform_guess('GGRY')
+
+      expect(evaluator.placement).to eq(2)
+    end
   end
 end
