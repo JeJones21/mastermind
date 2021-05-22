@@ -1,5 +1,7 @@
 class Evaluator
-
+  attr_reader :code
+  
   def initialize(code)
-  end 
+    @code = code
+  end
 end
