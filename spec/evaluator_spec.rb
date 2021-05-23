@@ -80,5 +80,15 @@ RSpec.describe Evaluator do
 
       expect(evaluator.correct_length).to eq("Oops! Your guess is too short. Please try again.")
     end
+
+    it 'can alert player when they have guessed correctly' do
+      code = Code.new
+      allow(code).to receive(:generate).and_return(['R', 'B', 'B', 'Y'])
+      code.secret_code = code.generate
+      evaluator = Evaluator.new(code)
+      evaluator.transform_guess('RBBY')
+
+      expect(evaluator.correct_guess).to eq("WE HAVE A WINNER! Congratulations, you've guessed the secret code!")
+    end
   end
 end
