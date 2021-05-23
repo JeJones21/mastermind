@@ -35,4 +35,16 @@ class Evaluator
     end
     return "You have guessed #{correct_colors} correct colors!"
   end
+
+  def correct_length
+    if @guess.length == @code.secret_code.length
+      true
+    elsif @guess.length < @code.secret_code.length
+      false
+      return "Oops! Your guess is too short. Please try again."
+    elsif @guess.length > @code.secret_code.length
+      false
+      return "Oops! Your guess is too long. Please try again."
+    end
+  end
 end
