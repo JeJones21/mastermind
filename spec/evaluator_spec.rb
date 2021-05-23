@@ -48,7 +48,7 @@ RSpec.describe Evaluator do
       evaluator = Evaluator.new(code)
       evaluator.transform_guess('GBRY')
 
-      expect(evaluator.correct_color).to eq(2)
+      expect(evaluator.correct_color).to eq("You have guessed 2 correct colors!")
     end
   end
 end
