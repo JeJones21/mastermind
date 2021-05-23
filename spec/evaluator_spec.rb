@@ -50,5 +50,35 @@ RSpec.describe Evaluator do
 
       expect(evaluator.correct_color).to eq("You have guessed 2 correct colors!")
     end
+
+    it 'can tell when a guess is the correct length' do
+      code = Code.new
+      allow(code).to receive(:generate).and_return(['Y', 'Y', 'G', 'Y'])
+      code.secret_code = code.generate
+      evaluator = Evaluator.new(code)
+      evaluator.transform_guess('GBRY')
+
+      expect(evaluator.correct_length).to eq(true)
+    end
+
+    it 'can tell player when their guess is too long' do
+      code = Code.new
+      allow(code).to receive(:generate).and_return(['Y', 'Y', 'G', 'Y'])
+      code.secret_code = code.generate
+      evaluator = Evaluator.new(code)
+      evaluator.transform_guess('GBRYY')
+
+      expect(evaluator.correct_length).to eq("Oops! Your guess is too long. Please try again.")
+    end
+
+    it 'can tell player when their guess is too short' do
+      code = Code.new
+      allow(code).to receive(:generate).and_return(['Y', 'Y', 'G', 'Y'])
+      code.secret_code = code.generate
+      evaluator = Evaluator.new(code)
+      evaluator.transform_guess('GBR')
+
+      expect(evaluator.correct_length).to eq("Oops! Your guess is too short. Please try again.")
+    end
   end
 end
