@@ -10,6 +10,7 @@ class Code
   def generate
     secret_code = []
     4.times { secret_code << colors.sample }
+    @secret_code = secret_code
     return secret_code
   end
 end
