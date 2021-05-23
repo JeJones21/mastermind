@@ -47,4 +47,11 @@ class Evaluator
       return "Oops! Your guess is too long. Please try again."
     end
   end
+
+  def correct_guess
+    if @guess == @code.secret_code
+      true
+      return "WE HAVE A WINNER! Congratulations, you've guessed the secret code!"
+    end
+  end
 end
