@@ -4,6 +4,7 @@ class Evaluator
 
   def initialize(code)
     @code = code
+    @guess = []
   end
 
   def transform_guess(user_guess)
@@ -17,20 +18,21 @@ class Evaluator
         placement_counter += 1
       end
     end
-    return placement_counter
-  end
+    return "You have #{placement_counter} colors in the correct position!"
+    end
 
   def correct_color
     correct_colors = 0
     increment = 0
-    @guess.length.times do
-      if @code.secret_code.include?(@guess[increment])
-        @guess.delete(@guess[increment])
+    guess = @guess.dup
+    guess.length.times do
+      if @code.secret_code.include?(guess[increment])
+        guess.delete(guess[increment])
         correct_colors += 1
       else
         increment += 1
       end
     end
-    return correct_colors
+    return "You have guessed #{correct_colors} correct colors!"
   end
 end
