@@ -68,7 +68,7 @@ RSpec.describe Evaluator do
       evaluator = Evaluator.new(code)
       evaluator.transform_guess('GBRYY')
 
-      expect(evaluator.correct_length).to eq("Oops! Your guess is too long. Please try again.")
+      expect(evaluator.correct_length).to eq(false)
     end
 
     it 'can tell player when their guess is too short' do
@@ -78,7 +78,7 @@ RSpec.describe Evaluator do
       evaluator = Evaluator.new(code)
       evaluator.transform_guess('GBR')
 
-      expect(evaluator.correct_length).to eq("Oops! Your guess is too short. Please try again.")
+      expect(evaluator.correct_length).to eq(false)
     end
 
     it 'can alert player when they have guessed correctly' do
