@@ -36,4 +36,10 @@ class Game
       @evaluator.transform_guess(user_guess)
     end
   end
-end 
+
+  def evaluate
+    return if @evaluator.correct_length == false
+    puts @evaluator.placement
+    puts @evaluator.correct_color
+  end
+end
