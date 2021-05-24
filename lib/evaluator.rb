@@ -37,14 +37,14 @@ class Evaluator
   end
 
   def correct_length
-    if @guess.length == @code.secret_code.length
-      true
-    elsif @guess.length < @code.secret_code.length
+    if @guess.length < @code.secret_code.length
+      puts "Oops! Your guess is too short. Please try again."
       false
-      return "Oops! Your guess is too short. Please try again."
     elsif @guess.length > @code.secret_code.length
+      puts "Oops! Your guess is too long. Please try again."
       false
-      return "Oops! Your guess is too long. Please try again."
+    else
+      true
     end
   end
 
