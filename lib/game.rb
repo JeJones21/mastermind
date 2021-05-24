@@ -26,4 +26,14 @@ class Game
   def start
     menu
   end
-end
+
+  def transform
+    user_guess = gets.chomp.upcase
+    if user_guess == 'C' || user_guess == 'CHEAT'
+      print @code.secret_code
+      puts " "
+    else
+      @evaluator.transform_guess(user_guess)
+    end
+  end
+end 
