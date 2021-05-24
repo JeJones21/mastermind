@@ -16,5 +16,13 @@ RSpec.describe Game do
 
       expect(game.code).to be_an_instance_of(Code)
     end
+
+    it 'is initialized with an evaluator' do
+      code = Code.new
+      evaluator = Evaluator.new(code)
+      game = Game.new
+
+      expect(game.evaluator).to be_an_instance_of(Evaluator)
+    end
   end
 end
