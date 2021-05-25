@@ -19,7 +19,7 @@ class Evaluator
       end
     end
     return "You have #{placement_counter} colors in the correct position!"
-    end
+  end
 
   def correct_color
     correct_colors = 0

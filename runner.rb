@@ -1,6 +1,6 @@
 require './lib/code'
 require './lib/evaluator'
-require './lib/game_flow'
+require './lib/game'
 
-game = GameFlow.new
+game = Game.new
 game.start
