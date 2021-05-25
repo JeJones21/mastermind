@@ -3,11 +3,13 @@ require './lib/evaluator'
 
 class Game
   attr_reader :code,
-              :evaluator
+              :evaluator,
+              :guess_counter
 
   def initialize
     @code = Code.new
     @evaluator = Evaluator.new(code)
+    @guess_counter = 0
   end
 
   def menu
@@ -22,7 +24,7 @@ class Game
     elsif input == 'I' || input == 'INSTRUCTIONS'
       instructions
     elsif input == 'Q' || input == 'QUIT'
-      quit_game
+      quit
     end
   end
 
@@ -34,6 +36,7 @@ class Game
       quit
     else
       @evaluator.transform_guess(user_guess)
+      evaluate
     end
   end
 
@@ -51,6 +54,7 @@ class Game
   end
 
   def play
+    @start_timer = Time.now
     @code.generate
     puts " "
     puts "GAME ON! I have generated a beginner sequence with four elements made up of:"
@@ -60,8 +64,9 @@ class Game
       puts "What's your next guess?!"
       print "> "
       transform
-      evaluate
+      @guess_counter += 1
     end
+    @stop_timer = Time.now
     winner
   end
 
@@ -86,7 +91,7 @@ class Game
   end
 
   def winner
-    puts "WE HAVE A WINNER!! Congratulations, you guessed the secret code!"
+    puts "WE HAVE A WINNER!! Congratulations, you guessed the secret code with #{guess_counter} guesses in #{timer}!"
     puts " "
     puts "Would you like to (p)lay again, or (q)uit?"
     print "> "
@@ -100,5 +105,12 @@ class Game
     elsif input == 'Q' || input == 'QUIT'
       quit
     end
+  end
+
+  def timer
+    total_time = @stop_timer - @start_timer
+    minutes = total_time / 60
+    seconds = total_time % 60
+    "#{minutes.to_i} minutes and #{seconds.to_i} seconds"
   end
 end
