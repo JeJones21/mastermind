@@ -42,4 +42,18 @@ class Game
     puts @evaluator.placement
     puts @evaluator.correct_color
   end
+
+  def play
+    @code.generate
+    puts " "
+    puts "GAME ON! I have generated a beginner sequence with four elements made up of:"
+    puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
+    puts " "
+    until @evaluator.correct_guess == true
+      print "What's your guess?!"
+      print "> "
+      transform
+      evaluate
+    end
+  end
 end
