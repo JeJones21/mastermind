@@ -56,4 +56,14 @@ class Game
       evaluate
     end
   end
+
+  def play_or_quit
+    instructions
+    input = gets.chomp.downcase
+    if input == ‘p’ || input == ‘play’
+      start_game
+    elsif input == ‘q’ || input == ‘quit’
+      quit_game
+    end
+  end
 end
