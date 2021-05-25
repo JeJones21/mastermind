@@ -1,3 +1,6 @@
+require './lib/code'
+require './lib/evaluator'
+
 class Game
   attr_reader :code,
               :evaluator
@@ -15,7 +18,7 @@ class Game
     print "> "
     input = gets.chomp.downcase
     if input == 'p' || input == 'play'
-      start_game
+      play 
     elsif input == 'i' || input == 'instructions'
       instructions
     elsif input == 'q' || input == 'quit'
