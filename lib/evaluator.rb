@@ -50,8 +50,7 @@ class Evaluator
 
   def correct_guess
     if @guess == @code.secret_code
-      puts "WE HAVE A WINNER! Congratulations, you've guessed the secret code!"
-      true
+      return true
     else
       false
     end
