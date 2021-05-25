@@ -26,20 +26,22 @@ class Game
     end
   end
 
-  def start
-    menu
-  end
-
   def transform
     user_guess = gets.chomp.upcase
     if user_guess == 'C' || user_guess == 'CHEAT'
-      print @code.secret_code.join
-      puts " "
+      cheat
     elsif user_guess == 'Q' || user_guess == 'QUIT'
       quit
     else
       @evaluator.transform_guess(user_guess)
     end
+  end
+
+  def cheat
+    puts " "
+    puts "CHEATER ALERT. Don't worry...your secret is safe with us!"
+    print "Is this what you were looking for? -----> SECRET CODE: #{@code.secret_code.join}"
+    puts " "
   end
 
   def evaluate
@@ -55,23 +57,24 @@ class Game
     puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
     puts " "
     until @evaluator.correct_guess == true
-    print "What's your guess?!"
-    print "> "
-    transform
-    evaluate
+      puts "What's your next guess?!"
+      print "> "
+      transform
+      evaluate
     end
+    winner
   end
 
   def instructions
       puts " "
-      puts "-------------Instructions------------"
+      puts "---------------------------------Instructions---------------------------------"
       puts "A secret code containing 4 colors will be generated, and it's your"
       puts "job to guess what it is! It will include a random order of (r)ed, (b)lue,"
       puts "(g)reen and (y)ellow, and can even contain repeated colors. Guess the correct"
       puts "colors in the correct order to win. Your guess should be 4 consecutive letters"
       puts "like this: rygb"
       puts  "Good luck!"
-      puts "-------------------------------------"
+      puts "------------------------------------------------------------------------------"
       puts " "
       puts "Are you ready to (p)lay?"
       print "> "
@@ -86,7 +89,7 @@ class Game
     puts "WE HAVE A WINNER!! Congratulations, you guessed the secret code!"
     puts " "
     puts "Would you like to (p)lay again, or (q)uit?"
-    puts "> "
+    print "> "
     play_or_quit
   end
 
