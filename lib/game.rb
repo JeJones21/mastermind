@@ -70,7 +70,11 @@ class Game
       puts " "
       puts "Are you ready to (p)lay?"
       print "> "
-    end
+  end
+
+  def quit
+    exit
+  end 
 
   def play_or_quit
     instructions
@@ -78,7 +82,7 @@ class Game
     if input == ‘p’ || input == ‘play’
       start_game
     elsif input == ‘q’ || input == ‘quit’
-      quit_game
+      quit
     end
   end
 end
