@@ -16,12 +16,12 @@ class Game
     puts " "
     puts "Would you like to (p)lay, read the (i)instructions, or (q)uit?"
     print "> "
-    input = gets.chomp.downcase
-    if input == 'p' || input == 'play'
+    input = gets.chomp.upcase
+    if input == 'P' || input == 'PLAY'
       play
-    elsif input == 'i' || input == 'instructions'
+    elsif input == 'I' || input == 'INSTRUCTIONS'
       instructions
-    elsif input == 'q' || input == 'quit'
+    elsif input == 'Q' || input == 'QUIT'
       quit_game
     end
   end
@@ -75,24 +75,26 @@ class Game
       puts " "
       puts "Are you ready to (p)lay?"
       print "> "
+      play_or_quit
   end
 
   def quit
     exit
   end
 
-  def play_or_quit
-    instructions
-    input = gets.chomp.downcase
-    if input == ‘p’ || input == ‘play’
-      start_game
-    elsif input == ‘q’ || input == ‘quit’
-      quit
-    end
+  def winner
+    puts "WE HAVE A WINNER!! Congratulations, you guessed the secret code!"
+    puts " "
+    puts "Would you like to (p)lay again, or (q)uit?"
+    puts "> "
   end
 
-  def winner_message
-    puts "Congratulations! You won!"
-    puts "Do you want to (p)lay again or (q)uit?"
+  def play_or_quit
+    input = gets.chomp.upcase
+    if input == 'P' || input == 'PLAY'
+      play
+    elsif input == 'Q' || input == 'QUIT'
+      quit
+    end
   end
 end
