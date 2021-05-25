@@ -25,12 +25,19 @@ class Game
       instructions
     elsif input == 'Q' || input == 'QUIT'
       quit
+    else
+      puts " "
+      puts "-----------------------------------------------------------"
+      puts "🚨 We're sorry, your input is invalid. Please try again. 🚨"
+      puts "-----------------------------------------------------------"
+      menu
     end
   end
 
   def transform
     user_guess = gets.chomp.upcase
     if user_guess == 'C' || user_guess == 'CHEAT'
+      @guess_counter -= 1
       cheat
     elsif user_guess == 'Q' || user_guess == 'QUIT'
       quit
@@ -44,6 +51,7 @@ class Game
     puts " "
     puts "CHEATER ALERT. Don't worry...your secret is safe with us!"
     print "Is this what you were looking for? -----> SECRET CODE: #{@code.secret_code.join}"
+    puts " "
     puts " "
   end
 
@@ -61,7 +69,7 @@ class Game
     puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
     puts " "
     until @evaluator.correct_guess == true
-      puts "What's your next guess?!"
+      puts "What's your guess?!"
       print "> "
       transform
       @guess_counter += 1
