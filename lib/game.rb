@@ -18,7 +18,7 @@ class Game
     print "> "
     input = gets.chomp.downcase
     if input == 'p' || input == 'play'
-      play 
+      play
     elsif input == 'i' || input == 'instructions'
       instructions
     elsif input == 'q' || input == 'quit'
@@ -35,6 +35,8 @@ class Game
     if user_guess == 'C' || user_guess == 'CHEAT'
       print @code.secret_code
       puts " "
+    elsif user_guess == 'Q' || user_guess == 'QUIT'
+      quit
     else
       @evaluator.transform_guess(user_guess)
     end
