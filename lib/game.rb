@@ -74,7 +74,7 @@ class Game
 
   def quit
     exit
-  end 
+  end
 
   def play_or_quit
     instructions
@@ -84,5 +84,10 @@ class Game
     elsif input == ‘q’ || input == ‘quit’
       quit
     end
+  end
+
+  def winner_message
+    puts "Congratulations! You won!"
+    puts "Do you want to (p)lay again or (q)uit?"
   end
 end
