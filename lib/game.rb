@@ -33,7 +33,7 @@ class Game
   def transform
     user_guess = gets.chomp.upcase
     if user_guess == 'C' || user_guess == 'CHEAT'
-      print @code.secret_code
+      print @code.secret_code.join
       puts " "
     elsif user_guess == 'Q' || user_guess == 'QUIT'
       quit
@@ -55,10 +55,10 @@ class Game
     puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
     puts " "
     until @evaluator.correct_guess == true
-      print "What's your guess?!"
-      print "> "
-      transform
-      evaluate
+    print "What's your guess?!"
+    print "> "
+    transform
+    evaluate
     end
   end
 
@@ -87,6 +87,7 @@ class Game
     puts " "
     puts "Would you like to (p)lay again, or (q)uit?"
     puts "> "
+    play_or_quit
   end
 
   def play_or_quit
