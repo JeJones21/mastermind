@@ -25,4 +25,11 @@ def display_menu
     puts "Are you ready to (p)lay?"
     print "> "
   end
+
+  def game_on
+   puts " "
+   puts "GAME ON! I have generated a beginner sequence with four elements made up of:"
+   puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
+   puts " "
+ end
 end
