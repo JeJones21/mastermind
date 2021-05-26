@@ -14,7 +14,7 @@ class Game
 
   def menu
     puts " "
-    puts "Welcome to MASTERMIND"
+    puts "Welcome to 🧠 MASTERMIND 🧠"
     puts " "
     puts "Would you like to (p)lay, read the (i)instructions, or (q)uit?"
     print "> "
