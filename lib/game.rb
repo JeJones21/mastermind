@@ -1,23 +1,22 @@
 require './lib/code'
 require './lib/evaluator'
+require './lib/messages'
 
 class Game
   attr_reader :code,
               :evaluator,
-              :guess_counter
+              :guess_counter,
+              :messages
 
   def initialize
     @code = Code.new
     @evaluator = Evaluator.new(code)
     @guess_counter = 0
+    @messages = Messages.new
   end
 
   def menu
-    puts " "
-    puts "Welcome to 🧠 MASTERMIND 🧠"
-    puts " "
-    puts "Would you like to (p)lay, read the (i)instructions, or (q)uit?"
-    print "> "
+    @messages.display_menu
     input = gets.chomp.upcase
     if input == 'P' || input == 'PLAY'
       play

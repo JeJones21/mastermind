@@ -1,3 +1,5 @@
+require './lib/messages'
+
 class Evaluator
   attr_reader :code,
               :guess
