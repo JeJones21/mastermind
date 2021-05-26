@@ -25,14 +25,4 @@ RSpec.describe Game do
       expect(game.evaluator).to be_an_instance_of(Evaluator)
     end
   end
-
-  describe 'gameflow' do
-    it 'has an interactive #menu always accessed by #start' do
-      code = Code.new
-      evaluator = Evaluator.new(code)
-      game = Game.new
-
-      expect(game.start).to eq(game.menu)
-    end
-  end
 end
