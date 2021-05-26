@@ -47,7 +47,7 @@ RSpec.describe Evaluator do
       code.secret_code = code.generate
       evaluator = Evaluator.new(code)
       evaluator.transform_guess('GBRY')
-      # require 'pry'; binding.pry 
+    
       expect(evaluator.correct_color).to eq("You have guessed 2 correct colors.")
     end
 

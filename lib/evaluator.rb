@@ -20,7 +20,6 @@ class Evaluator
     end
     if @guess != @code.secret_code
       puts " "
-      puts "------------------------------------------"
       return "You have #{placement_counter} colors in the correct position."
     end
   end
@@ -39,7 +38,6 @@ class Evaluator
     end
     if @guess != @code.secret_code
       return "You have guessed #{correct_colors} correct colors."
-      puts "------------------------------------------"
     end
   end
 
