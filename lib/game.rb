@@ -25,10 +25,7 @@ class Game
     elsif input == 'Q' || input == 'QUIT'
       quit
     else
-      puts " "
-      puts "-----------------------------------------------------------"
-      puts "🚨 We're sorry, your input is invalid. Please try again. 🚨"
-      puts "-----------------------------------------------------------"
+      @messages.invalid
       menu
     end
   end

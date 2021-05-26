@@ -32,4 +32,23 @@ def display_menu
    puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
    puts " "
  end
+
+  def invalid
+    puts " "
+    puts "-----------------------------------------------------------"
+    puts "🚨 We're sorry, your input is invalid. Please try again. 🚨"
+    puts "-----------------------------------------------------------"
+  end
+
+  def short
+    puts " "
+    puts "Oops! Your guess is too short. Please try again."
+    puts " "
+  end
+
+  def long
+    puts " "
+    puts "Oops! Your guess is too long. Please try again."
+    puts " "
+  end
 end
