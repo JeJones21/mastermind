@@ -38,7 +38,7 @@ class Evaluator
       end
     end
     if @guess != @code.secret_code
-      puts "You have guessed #{correct_colors} correct colors."
+      return "You have guessed #{correct_colors} correct colors."
       puts "------------------------------------------"
     end
   end
