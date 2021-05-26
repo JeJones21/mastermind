@@ -63,10 +63,7 @@ class Game
   def play
     @start_timer = Time.now
     @code.generate
-    puts " "
-    puts "GAME ON! I have generated a beginner sequence with four elements made up of:"
-    puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
-    puts " "
+    @messages.game_on
     until @evaluator.correct_guess == true
       puts "What's your guess?!"
       print "> "
