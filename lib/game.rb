@@ -49,7 +49,7 @@ class Game
 
   def cheat
     puts " "
-    puts "CHEATER ALERT. Don't worry...your secret is safe with us!"
+    puts "👀 CHEATER ALERT 👀. Don't worry...your secret is safe with us!"
     print "Is this what you were looking for? -----> SECRET CODE: #{@code.secret_code.join}"
     puts " "
     puts " "
