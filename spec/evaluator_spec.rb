@@ -38,7 +38,7 @@ RSpec.describe Evaluator do
       evaluator = Evaluator.new(code)
       evaluator.transform_guess('GGRY')
 
-      expect(evaluator.placement).to eq("You have 2 colors in the correct position!")
+      expect(evaluator.placement).to eq("You have 2 colors in the correct position.")
     end
 
     it 'evaluates colors' do
@@ -47,8 +47,8 @@ RSpec.describe Evaluator do
       code.secret_code = code.generate
       evaluator = Evaluator.new(code)
       evaluator.transform_guess('GBRY')
-
-      expect(evaluator.correct_color).to eq("You have guessed 2 correct colors!")
+      # require 'pry'; binding.pry 
+      expect(evaluator.correct_color).to eq("You have guessed 2 correct colors.")
     end
 
     it 'can tell when a guess is the correct length' do
@@ -88,7 +88,7 @@ RSpec.describe Evaluator do
       evaluator = Evaluator.new(code)
       evaluator.transform_guess('RBBY')
 
-      expect(evaluator.correct_guess).to eq("WE HAVE A WINNER! Congratulations, you've guessed the secret code!")
+      expect(evaluator.correct_guess).to eq(true)
     end
   end
 end
