@@ -99,7 +99,7 @@ class Game
   end
 
   def winner
-    puts "WE HAVE A WINNER!! Congratulations, you guessed the secret code with #{guess_counter} guesses in #{timer}!"
+    puts "WE HAVE A WINNER 🎉🎉🎉🎉🎉!! Congratulations, you guessed the secret code with #{guess_counter} guesses in #{timer}!"
     puts " "
     puts "Would you like to (p)lay again, or (q)uit?"
     print "> "
