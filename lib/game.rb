@@ -1,23 +1,22 @@
 require './lib/code'
 require './lib/evaluator'
+require './lib/messages'
 
 class Game
   attr_reader :code,
               :evaluator,
-              :guess_counter
+              :guess_counter,
+              :messages
 
   def initialize
     @code = Code.new
     @evaluator = Evaluator.new(code)
     @guess_counter = 0
+    @messages = Messages.new
   end
 
   def menu
-    puts " "
-    puts "Welcome to MASTERMIND"
-    puts " "
-    puts "Would you like to (p)lay, read the (i)instructions, or (q)uit?"
-    print "> "
+    @messages.display_menu
     input = gets.chomp.upcase
     if input == 'P' || input == 'PLAY'
       play
@@ -26,10 +25,7 @@ class Game
     elsif input == 'Q' || input == 'QUIT'
       quit
     else
-      puts " "
-      puts "-----------------------------------------------------------"
-      puts "🚨 We're sorry, your input is invalid. Please try again. 🚨"
-      puts "-----------------------------------------------------------"
+      @messages.invalid
       menu
     end
   end
@@ -49,7 +45,7 @@ class Game
 
   def cheat
     puts " "
-    puts "CHEATER ALERT. Don't worry...your secret is safe with us!"
+    puts "👀 CHEATER ALERT 👀. Don't worry...your secret is safe with us!"
     print "Is this what you were looking for? -----> SECRET CODE: #{@code.secret_code.join}"
     puts " "
     puts " "
@@ -64,10 +60,7 @@ class Game
   def play
     @start_timer = Time.now
     @code.generate
-    puts " "
-    puts "GAME ON! I have generated a beginner sequence with four elements made up of:"
-    puts "(r)ed, (g)reen, (y)ellow, and (b)lue. Use (q) at any time if you are a quitter."
-    puts " "
+    @messages.game_on
     until @evaluator.correct_guess == true
       puts "What's your guess?!"
       print "> "
@@ -79,19 +72,8 @@ class Game
   end
 
   def instructions
-      puts " "
-      puts "---------------------------------Instructions---------------------------------"
-      puts "A secret code containing 4 colors will be generated, and it's your"
-      puts "job to guess what it is! It will include a random order of (r)ed, (b)lue,"
-      puts "(g)reen and (y)ellow, and can even contain repeated colors. Guess the correct"
-      puts "colors in the correct order to win. Your guess should be 4 consecutive letters"
-      puts "like this: rygb"
-      puts  "Good luck!"
-      puts "------------------------------------------------------------------------------"
-      puts " "
-      puts "Are you ready to (p)lay?"
-      print "> "
-      play_or_quit
+    @messages.instruct
+    play_or_quit
   end
 
   def quit
@@ -99,7 +81,7 @@ class Game
   end
 
   def winner
-    puts "WE HAVE A WINNER!! Congratulations, you guessed the secret code with #{guess_counter} guesses in #{timer}!"
+    puts "WE HAVE A WINNER 🎉🎉🎉🎉🎉!! Congratulations, you guessed the secret code with #{guess_counter} guesses in #{timer}!"
     puts " "
     puts "Would you like to (p)lay again, or (q)uit?"
     print "> "

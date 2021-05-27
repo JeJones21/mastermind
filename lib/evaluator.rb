@@ -1,3 +1,5 @@
+require './lib/messages'
+
 class Evaluator
   attr_reader :code,
               :guess
@@ -20,7 +22,6 @@ class Evaluator
     end
     if @guess != @code.secret_code
       puts " "
-      puts "------------------------------------------"
       return "You have #{placement_counter} colors in the correct position."
     end
   end
@@ -39,20 +40,15 @@ class Evaluator
     end
     if @guess != @code.secret_code
       return "You have guessed #{correct_colors} correct colors."
-      puts "------------------------------------------"
     end
   end
 
   def correct_length
     if @guess.length < @code.secret_code.length
-      puts " "
-      puts "Oops! Your guess is too short. Please try again."
-      puts " "
+      @messages.short
       return false
     elsif @guess.length > @code.secret_code.length
-      puts " "
-      puts "Oops! Your guess is too long. Please try again."
-      puts " "
+      @messages.long 
       return false
     else
       true
