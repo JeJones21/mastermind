@@ -39,16 +39,4 @@ def display_menu
     puts "🚨 We're sorry, your input is invalid. Please try again. 🚨"
     puts "-----------------------------------------------------------"
   end
-
-  def short
-    puts " "
-    puts "Oops! Your guess is too short. Please try again."
-    puts " "
-  end
-
-  def long
-    puts " "
-    puts "Oops! Your guess is too long. Please try again."
-    puts " "
-  end
 end
